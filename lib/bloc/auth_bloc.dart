@@ -9,7 +9,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthLogoutRequested>(_onAuthLogoutRequested);
   }
 
-  void _onAuthLoginRequested(event, emit) async {
+  void _onAuthLoginRequested(AuthLoginRequested event, emit) async {
     emit(AuthLoading());
     try {
       await Future.delayed(Duration(seconds: 1));
@@ -28,7 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  void _onAuthLogoutRequested(event, emit) async {
+  void _onAuthLogoutRequested(AuthLogoutRequested event, emit) async {
     emit(AuthLoading());
     try {
       await Future.delayed(Duration(seconds: 1));
